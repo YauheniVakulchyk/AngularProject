@@ -1,0 +1,13 @@
+<div class="courses-page">
+  <app-toolbox></app-toolbox>
+  <div *ngFor="let course of coursesList">
+      <app-course
+        [title]="course.title"
+        [duration]="course.duration"
+        [description]="course.description"
+        [creationDate]="course.creationDate"
+        [id]="course.id"
+        (someEvent)="submitOnDelete($event)">
+      </app-course>
+  </div>
+</div>

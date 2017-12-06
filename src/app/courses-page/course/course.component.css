@@ -1,0 +1,49 @@
+.course{
+  height: 130px;
+  margin-top: 1%;
+  margin-left: 10%;
+  margin-right: 10%;
+  border: ridge;
+  background-color: lightgrey;
+  position: relative;
+}
+
+.title, .duration {
+  float: left;
+}
+
+.creationDate {
+  float: left;
+  text-align: right;
+}
+
+.title, .creationDate, .duration {
+  width: 27%;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+.buttons{
+  margin-top: 15px;
+  margin-right: 0;
+  float: right;
+  width: 10%;
+}
+
+.description{
+  position: absolute;
+  bottom: 0px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+button {
+  margin: 5px;
+  width: 100px;
+  background-color: #ddd;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 6px 10px;
+  font-style: italic;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+}

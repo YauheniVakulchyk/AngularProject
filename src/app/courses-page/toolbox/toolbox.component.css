@@ -1,0 +1,26 @@
+.toolbox{
+  height: 100px;
+}
+
+.toolbox > div {
+  float: left;
+  width: 28%;
+  margin-right: 2%;
+  padding: 10px;
+}
+
+.toolbox > div:last-child {
+  margin-right: 0;
+  float: right;
+  width: 15%;
+}
+
+button {
+  width: 100px;
+  background-color: #ddd;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 6px 10px;
+  font-style: italic;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+}

@@ -1,0 +1,10 @@
+<div class="course">
+  <div class="title">{{title}}</div>
+  <div class="duration">{{duration}} min.</div>
+  <div class="creationDate">{{creationDate.getDay()}}-{{creationDate.getMonth()}}-{{creationDate.getFullYear()}}</div>
+  <div class="description">{{description}}</div>
+  <div class="buttons">
+    <button>Edit Course</button><br>
+    <button (click)="delete()">Delete</button>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+.logo{
+  margin: 5px;
+  border: ridge;
+  background-color: whiteSmoke;
+  height: 100px;
+}
+
+.logo > div {
+  float: left;
+  width: 28%;
+  margin-right: 2%;
+  padding: 10px;
+}
+
+
+.logo > div:last-child {
+  margin-right: 0;
+  float: right;
+  width: 15%;
+}
+
+.logo > div:last-child > div {
+  margin-right: 0;
+  float: right;
+}
+
+button {
+  width: 100px;
+  background-color: #ddd;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 6px 10px;
+  font-style: italic;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+}
+
+
+
+

@@ -1,11 +1,10 @@
 interface Course {
   id: number;
-  name: string;
+  title: string;
   duration: number;
   description: string;
-  date: Date;
-  order?: number;
+  creationDate: Date;
 
-  editCourse(newDescription: string): void;
-  delete(): void;
+  // editCourse(newDescription: string): void;
+ // delete(): void;
 }
