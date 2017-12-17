@@ -1,4 +1,7 @@
 import { Component, OnInit, NgModule } from '@angular/core';
+import {DeleteConfirmationComponent} from '../course/delete-confirmation/delete-confirmation.component';
+import {ModalService} from '../../services/modal.service';
+import {AddCourseComponent} from './add-course/add-course.component';
 
 @Component({
   selector: 'app-toolbox',
@@ -9,7 +12,10 @@ export class ToolboxComponent implements OnInit {
 
   item: string;
 
-  constructor() {
+  constructor(private modalService: ModalService) {}
+
+  open() {
+    this.modalService.open(AddCourseComponent);
   }
 
   ngOnInit() {

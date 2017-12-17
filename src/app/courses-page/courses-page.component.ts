@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CourseComponent} from './course/course.component';
+import {CourseService} from '../services/course.service';
+import {ModalService} from '../services/modal.service';
 
 @Component({
   selector: 'app-courses-page',
@@ -8,20 +10,18 @@ import {CourseComponent} from './course/course.component';
 })
 export class CoursesPageComponent implements OnInit {
 
-  coursesList: any[];
+  courses: CourseComponent[];
 
-  constructor() {
-    this.coursesList = [];
-  }
+  course: CourseComponent;
 
-  submitOnDelete(event: number) {
-    console.log(event);
-  }
+  constructor(private courseService: CourseService, private modalService: ModalService) {}
 
   ngOnInit() {
-    this.coursesList.push({id: 1, creationDate: new Date(2017, 2, 17), title: 'Angular course', duration: 50, description: 'This is a very interesting course.'});
-    this.coursesList.push({id: 2, creationDate: new Date(2015, 11, 18), title: 'Java course', duration: 60, description: 'This is a very interesting course.'});
-    this.coursesList.push({id: 3, creationDate: new Date(2016, 4, 21), title: 'Machine Learning course', duration: 40, description: 'This is a very interesting course.'});
+    console.log('CoursesPageComponent init');
+    this.courses = this.courseService.getList();
+    this.courseService.isUpdated.subscribe((data) => {
+      this.modalService.close();
+      this.courses = this.courseService.getList();
+    });
   }
-
 }

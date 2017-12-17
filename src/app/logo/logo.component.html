@@ -5,8 +5,17 @@
   <div>
     <button>Courses</button>
   </div>
-  <div class="auth">
-    <app-login></app-login>
-    <app-logoff></app-logoff>
+  <div class="auth" *ngIf="isAuthenticated; then thenBlock else elseBlock">
   </div>
+  <ng-template #thenBlock>
+    <div class="auth">
+      <p>Hello, {{username}}</p>
+       <a href="javascript:void(0);" (click)="logout()">Logout</a>
+    </div>
+  </ng-template>
+  <ng-template #elseBlock>
+    <div class="auth">
+      <a href="javascript:void(0);">Login</a>
+    </div>
+  </ng-template>
 </div>

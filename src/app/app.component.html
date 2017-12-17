@@ -1,7 +1,13 @@
 <div class="container">
   <app-header></app-header>
   <app-logo></app-logo>
-  <app-courses-page></app-courses-page>
+  <div *ngIf="!isAuthenticated">
+    <app-login-page></app-login-page>
+  </div>
+  <div *ngIf="isAuthenticated">
+    <app-courses-page></app-courses-page>
+  </div>
+
   <app-footer></app-footer>
 </div>
 

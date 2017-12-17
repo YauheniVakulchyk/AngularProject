@@ -1,0 +1,10 @@
+<div class="modalWindow">
+  <p>Create new course</p>
+  <input type='text' [(ngModel)]='title' placeholder="Title">
+  <input type='text' [(ngModel)]='duration' placeholder="Duration">
+  <input type='text' [(ngModel)]='description' placeholder="Description">
+  <div class="buttons">
+    <button (click)="close()">Cancel</button>
+    <button (click)="addCourse()">Create</button>
+  </div>
+</div>

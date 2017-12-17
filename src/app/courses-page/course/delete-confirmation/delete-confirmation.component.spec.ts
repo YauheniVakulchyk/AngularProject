@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LogoffComponent } from './logoff.component';
+import { DeleteConfirmationComponent } from './delete-confirmation.component';
 
-describe('LogoffComponent', () => {
-  let component: LogoffComponent;
-  let fixture: ComponentFixture<LogoffComponent>;
+describe('DeleteConfirmationComponent', () => {
+  let component: DeleteConfirmationComponent;
+  let fixture: ComponentFixture<DeleteConfirmationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LogoffComponent ]
+      declarations: [ DeleteConfirmationComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LogoffComponent);
+    fixture = TestBed.createComponent(DeleteConfirmationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

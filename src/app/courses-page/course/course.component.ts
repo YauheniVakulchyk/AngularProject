@@ -1,4 +1,9 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
+import {NgbModal, ModalDismissReasons, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
+import {DeleteConfirmationComponent} from './delete-confirmation/delete-confirmation.component';
+import {ModalService} from '../../services/modal.service';
+import {CourseService} from '../../services/course.service';
+import {EditCourseComponent} from './edit-course/edit-course.component';
 
 @Component({
   selector: 'app-course',
@@ -21,10 +26,16 @@ export class CourseComponent implements Course, OnInit, OnChanges { // implement
   @Input()
   creationDate: Date;
 
-  @Output() someEvent = new EventEmitter<number>();
+  constructor(private modalService: ModalService) {}
 
-  delete() {
-    this.someEvent.emit(this.id);
+  openDeleteConfirmationWindow() {
+    this.modalService.open(DeleteConfirmationComponent);
+    this.modalService.setId(this.id);
+  }
+
+  openEditWindow() {
+    this.modalService.open(EditCourseComponent);
+    this.modalService.setId(this.id);
   }
 
   ngOnChanges() {
@@ -32,7 +43,6 @@ export class CourseComponent implements Course, OnInit, OnChanges { // implement
   }
 
   ngOnInit() {
-    console.log('ngOnInit');
   }
 
 }

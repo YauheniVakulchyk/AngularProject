@@ -25,7 +25,7 @@
 }
 
 button {
-  width: 100px;
+  width: 120px;
   background-color: #ddd;
   border-radius: 12px;
   cursor: pointer;
@@ -34,6 +34,11 @@ button {
   font-family: Comic Sans MS, Comic Sans, cursive;
 }
 
+a {
+  color: #14afb2;
+  text-decoration: underline;
+  font-style: italic;
+}
 
 
 

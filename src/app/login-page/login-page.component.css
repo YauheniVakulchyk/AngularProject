@@ -1,0 +1,40 @@
+
+.loginContainer {
+  margin: 5px;
+  border: ridge;
+  background-color: whiteSmoke;
+  min-height: 515px;
+}
+
+.login{
+  width: 300px;
+  position: relative;
+  margin: 100px auto 100px;
+  background-color: whiteSmoke;
+  min-height: 50%;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button {
+  background-color: #ddd;
+  cursor: pointer;
+  padding: 12px 20px;
+  font-style: italic;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  color: white;
+  margin: 8px 0;
+  border: none;
+  width: 100%;
+}

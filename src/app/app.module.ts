@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { CoursesPageComponent } from './courses-page/courses-page.component';
@@ -9,9 +9,14 @@ import { LogoComponent } from './logo/logo.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { CourseComponent } from './courses-page/course/course.component';
-import { LoginComponent } from './logo/login/login.component';
-import { LogoffComponent } from './logo/logoff/logoff.component';
 import { ToolboxComponent } from './courses-page/toolbox/toolbox.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { DeleteConfirmationComponent } from './courses-page/course/delete-confirmation/delete-confirmation.component';
+import {CourseService} from './services/course.service';
+import {AuthorizationService} from './services/authorization.service';
+import {ModalService} from './services/modal.service';
+import { AddCourseComponent } from './courses-page/toolbox/add-course/add-course.component';
+import { EditCourseComponent } from './courses-page/course/edit-course/edit-course.component';
 
 
 @NgModule({
@@ -22,15 +27,19 @@ import { ToolboxComponent } from './courses-page/toolbox/toolbox.component';
     FooterComponent,
     HeaderComponent,
     CourseComponent,
-    LoginComponent,
-    LogoffComponent,
-    ToolboxComponent
+    ToolboxComponent,
+    LoginPageComponent,
+    DeleteConfirmationComponent,
+    AddCourseComponent,
+    EditCourseComponent
   ],
+  entryComponents: [DeleteConfirmationComponent, AddCourseComponent, EditCourseComponent],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    NgbModule.forRoot(),
   ],
-  providers: [],
+  providers: [AuthorizationService, CourseService, ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

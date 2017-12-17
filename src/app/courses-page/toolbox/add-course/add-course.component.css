@@ -1,0 +1,32 @@
+.modalWindow{
+  height: 200px;
+  margin: 50px;
+  text-align: center;
+  font-style: italic;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+}
+
+p{
+  width: 100%;
+}
+
+input{
+  width: 60%;
+  margin: 6px;
+}
+
+.buttons {
+  width: 100%;
+}
+
+button {
+  background-color: #ddd;
+  cursor: pointer;
+  padding: 7px 20px;
+  font-style: italic;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  color: white;
+  margin: 8px 0;
+  border: none;
+  width: 30%;
+}
