@@ -2,6 +2,8 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import {DeleteConfirmationComponent} from '../course/delete-confirmation/delete-confirmation.component';
 import {ModalService} from '../../services/modal.service';
 import {AddCourseComponent} from './add-course/add-course.component';
+import {CourseService} from '../../services/course.service';
+import {Subject} from 'rxjs/Subject';
 
 @Component({
   selector: 'app-toolbox',
@@ -10,9 +12,10 @@ import {AddCourseComponent} from './add-course/add-course.component';
 })
 export class ToolboxComponent implements OnInit {
 
-  item: string;
 
-  constructor(private modalService: ModalService) {}
+  searchText: string;
+
+  constructor(private modalService: ModalService, private courseService: CourseService) {}
 
   open() {
     this.modalService.open(AddCourseComponent);
@@ -22,7 +25,7 @@ export class ToolboxComponent implements OnInit {
   }
 
   findItem() {
-    console.log(this.item);
+    this.courseService.setSearchTest(this.searchText);
   }
 
 }

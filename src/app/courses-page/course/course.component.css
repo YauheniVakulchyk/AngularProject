@@ -4,8 +4,15 @@
   margin-left: 10%;
   margin-right: 10%;
   border: ridge;
-  background-color: lightgrey;
   position: relative;
+}
+
+.coreStyle {
+  background-color: lightgrey;
+}
+
+.additionalStyle {
+  background-color: lightcyan;
 }
 
 .title, .duration {
@@ -18,9 +25,33 @@
 }
 
 .title, .creationDate, .duration {
-  width: 22%;
   margin-top: 15px;
-  margin-left: 20px;
+}
+
+.title, .creationDate, .duration, .description {
+  margin-left: 35px;
+}
+
+.description{
+  position: absolute;
+  bottom: 0px;
+  margin-bottom: 20px;
+}
+
+.title {
+  width: 25%;
+}
+
+.creationDate, .duration {
+ width: 16%;
+}
+
+.star {
+  height: 23px;
+  width: 21px;
+  position: absolute;
+  background: url(../../static/images/stars-5.png) 0 0;
+  background-size: 105px 25px;
 }
 
 .buttons{
@@ -28,13 +59,6 @@
   margin-right: 0;
   float: right;
   width: 15%;
-}
-
-.description{
-  position: absolute;
-  bottom: 0px;
-  margin-bottom: 20px;
-  margin-left: 20px;
 }
 
 button {

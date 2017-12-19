@@ -12,11 +12,12 @@ export class AddCourseComponent implements OnInit {
   title: string;
   duration: number;
   description: string;
+  hasStar: boolean;
 
   constructor(private courseService: CourseService) {}
 
   addCourse() {
-    this.courseService.addCourse(this.title, this.duration, this.description);
+    this.courseService.addCourse(this.title, this.duration, this.description, this.hasStar);
   }
 
   close() {

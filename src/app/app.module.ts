@@ -17,6 +17,10 @@ import {AuthorizationService} from './services/authorization.service';
 import {ModalService} from './services/modal.service';
 import { AddCourseComponent } from './courses-page/toolbox/add-course/add-course.component';
 import { EditCourseComponent } from './courses-page/course/edit-course/edit-course.component';
+import {BorderColorDirective} from './directives/border-color.directive';
+import {DurationPipe} from './pipes/duration.pipe';
+import {SortingPipe} from './pipes/sorting.pipe';
+import {FindPipe} from './pipes/find.pipe';
 
 
 @NgModule({
@@ -31,7 +35,11 @@ import { EditCourseComponent } from './courses-page/course/edit-course/edit-cour
     LoginPageComponent,
     DeleteConfirmationComponent,
     AddCourseComponent,
-    EditCourseComponent
+    EditCourseComponent,
+    BorderColorDirective,
+    DurationPipe,
+    SortingPipe,
+    FindPipe
   ],
   entryComponents: [DeleteConfirmationComponent, AddCourseComponent, EditCourseComponent],
   imports: [
@@ -39,7 +47,7 @@ import { EditCourseComponent } from './courses-page/course/edit-course/edit-cour
     FormsModule,
     NgbModule.forRoot(),
   ],
-  providers: [AuthorizationService, CourseService, ModalService],
+  providers: [AuthorizationService, CourseService, ModalService, FindPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

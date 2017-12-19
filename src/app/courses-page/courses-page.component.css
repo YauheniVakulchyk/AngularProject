@@ -4,3 +4,11 @@
   background-color: whiteSmoke;
   min-height: 750px;
 }
+
+.noData {
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
+  font-style: italic;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+}

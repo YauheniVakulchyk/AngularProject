@@ -9,10 +9,11 @@ import {Subject} from 'rxjs/Subject';
 })
 export class EditCourseComponent implements OnInit {
 
-  courseId: number; //= new Subject<number>();
+  courseId: number;
   title: string;
   duration: number;
   description: string;
+  hasStar: boolean;
 
   constructor(private courseService: CourseService) {
 
@@ -25,10 +26,11 @@ export class EditCourseComponent implements OnInit {
     this.title = course.title;
     this.duration = course.duration;
     this.description = course.description;
+    this.hasStar = course.hasStar;
   }
 
   editCourse() {
-    this.courseService.editCourse(this.courseId, this.title, this.duration, this.description);
+    this.courseService.editCourse(this.courseId, this.title, this.duration, this.description, this.hasStar);
   }
 
   close() {

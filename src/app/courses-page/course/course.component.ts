@@ -26,6 +26,9 @@ export class CourseComponent implements Course, OnInit, OnChanges { // implement
   @Input()
   creationDate: Date;
 
+  @Input()
+  hasStar: boolean;
+
   constructor(private modalService: ModalService) {}
 
   openDeleteConfirmationWindow() {

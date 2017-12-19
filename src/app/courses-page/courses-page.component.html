@@ -1,13 +1,19 @@
 <div class="courses-page">
   <app-toolbox></app-toolbox>
-  <div *ngFor="let course of courses">
+  <div *ngIf="isListEmpty; then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock>
+    <div class="noData">No data. Feel free to add new course</div>
+  </ng-template>
+  <ng-template #elseBlock>
+    <div *ngFor="let course of courses | sorting">
       <app-course
         [title]="course.title"
         [duration]="course.duration"
         [description]="course.description"
         [creationDate]="course.creationDate"
-        [id]="course.id"
-    (someEvent)="submitOnDelete($event)">
-  </app-course>
-</div>
+        [hasStar]="course.hasStar"
+        [id]="course.id">
+      </app-course>
+    </div>
+  </ng-template>
 </div>

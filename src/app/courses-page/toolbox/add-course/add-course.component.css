@@ -1,13 +1,26 @@
 .modalWindow{
-  height: 200px;
+  height: 250px;
   margin: 50px;
   text-align: center;
   font-style: italic;
   font-family: Comic Sans MS, Comic Sans, cursive;
 }
 
-p{
+.addText{
   width: 100%;
+}
+
+.addStar{
+  width: 50%;
+  font-style: italic;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  float: left;
+  margin-left: 75px;
+}
+
+.checkbox{
+  float: left;
+  width: 10%;
 }
 
 input{

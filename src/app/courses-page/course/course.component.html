@@ -1,7 +1,8 @@
-<div class="course">
-  <div class="title">{{title}}</div>
-  <div class="duration">{{duration}} min.</div>
-  <div class="creationDate">{{creationDate.getDate()}}-{{creationDate.getMonth()+1}}-{{creationDate.getFullYear()}}</div>
+<div appBorderColor [courseDate]="creationDate" [ngClass]="{course:true, coreStyle: !hasStar, additionalStyle: hasStar}">
+  <div class="title">{{title | uppercase}}</div>
+  <div class="duration">{{duration | durationPipe}} </div>
+  <div class="creationDate">{{creationDate | date:"dd/MM/yyyy"}}</div>
+  <div *ngIf="hasStar" class="star"></div>
   <div class="description">{{description}}</div>
   <div class="buttons">
     <button (click)="openEditWindow()">Edit Course</button><br>
