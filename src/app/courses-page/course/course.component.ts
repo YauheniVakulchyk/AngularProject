@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {NgbModal, ModalDismissReasons, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 import {DeleteConfirmationComponent} from './delete-confirmation/delete-confirmation.component';
 import {ModalService} from '../../services/modal.service';
@@ -7,6 +7,7 @@ import {EditCourseComponent} from './edit-course/edit-course.component';
 
 @Component({
   selector: 'app-course',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.css']
 })

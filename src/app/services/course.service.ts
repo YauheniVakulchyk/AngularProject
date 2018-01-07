@@ -36,6 +36,7 @@ export class CourseService {
 
   editCourse(idOfCourse: number, newTitle: string, newDuration: number, newDescription: string, newHasStar: boolean) {
     const course = this.getCourse(idOfCourse);
+   // course.title = newTitle;
     this.courses = this.courses.filter(e => e !== course);
     this.courses.push({id: idOfCourse, creationDate: course.creationDate, title: newTitle, duration: newDuration, description: newDescription, hasStar: newHasStar});
     this.isUpdated.next(true);
