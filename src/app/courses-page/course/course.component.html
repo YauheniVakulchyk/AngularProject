@@ -1,11 +1,11 @@
-<div appBorderColor [courseDate]="creationDate" [ngClass]="{course:true, coreStyle: !hasStar, additionalStyle: hasStar}">
+<div appBorderColor [courseDate]="date" [ngClass]="{course:true, coreStyle: !hasStar, additionalStyle: hasStar}">
   <div class="title">{{title | uppercase}}</div>
   <div class="duration">{{duration | durationPipe}} </div>
-  <div class="creationDate">{{creationDate | date:"dd/MM/yyyy"}}</div>
+  <div class="date">{{date | date:"dd/MM/yyyy"}}</div>
   <div *ngIf="hasStar" class="star"></div>
   <div class="description">{{description}}</div>
   <div class="buttons">
-    <button (click)="openEditWindow()">Edit Course</button><br>
+    <button (click)="openEditPage()">Edit Course</button><br>
     <button (click)="openDeleteConfirmationWindow()">Delete</button>
   </div>
 </div>

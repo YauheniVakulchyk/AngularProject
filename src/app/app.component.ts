@@ -10,13 +10,21 @@ import {CourseService} from './services/course.service';
 })
 export class AppComponent implements OnInit {
   isAuthenticated: boolean;
+  isAddPage: boolean;
   subscription: Subscription;
 
-  constructor(private authorizationService: AuthorizationService) {}
+  constructor(private authorizationService: AuthorizationService, private courseService: CourseService) {}
 
   ngOnInit() {
+    this.isAddPage = false;
+
     this.subscription = this.authorizationService.getMessage().subscribe(isAuthenticated => {
       this.isAuthenticated = isAuthenticated;
     });
+
+    this.courseService.isAddPage.subscribe(isAddPage => {
+      this.isAddPage = isAddPage;
+    });
+
   }
 }

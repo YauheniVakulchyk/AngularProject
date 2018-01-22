@@ -25,21 +25,22 @@ export class CourseComponent implements Course, OnInit, OnChanges { // implement
   description: string;
 
   @Input()
-  creationDate: Date;
+  date: Date;
 
   @Input()
   hasStar: boolean;
 
-  constructor(private modalService: ModalService) {}
+  constructor(private modalService: ModalService, private courseService: CourseService) {}
 
   openDeleteConfirmationWindow() {
     this.modalService.open(DeleteConfirmationComponent);
     this.modalService.setId(this.id);
   }
 
-  openEditWindow() {
-    this.modalService.open(EditCourseComponent);
-    this.modalService.setId(this.id);
+  openEditPage() {
+    //this.modalService.open(EditCourseComponent);
+    //this.modalService.setId(this.id);
+    this.courseService.setIsAddPage(true, this.id);
   }
 
   ngOnChanges() {

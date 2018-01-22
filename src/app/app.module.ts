@@ -15,12 +15,13 @@ import { DeleteConfirmationComponent } from './courses-page/course/delete-confir
 import {CourseService} from './services/course.service';
 import {AuthorizationService} from './services/authorization.service';
 import {ModalService} from './services/modal.service';
-import { AddCourseComponent } from './courses-page/toolbox/add-course/add-course.component';
+import { AddCourseComponent } from './add-course/add-course.component';
 import { EditCourseComponent } from './courses-page/course/edit-course/edit-course.component';
 import {BorderColorDirective} from './directives/border-color.directive';
 import {DurationPipe} from './pipes/duration.pipe';
 import {SortingPipe} from './pipes/sorting.pipe';
 import {FindPipe} from './pipes/find.pipe';
+import {OutdatedPipe} from './pipes/outdated.pipe';
 
 
 @NgModule({
@@ -39,9 +40,10 @@ import {FindPipe} from './pipes/find.pipe';
     BorderColorDirective,
     DurationPipe,
     SortingPipe,
+    OutdatedPipe,
     FindPipe
   ],
-  entryComponents: [DeleteConfirmationComponent, AddCourseComponent, EditCourseComponent],
+  entryComponents: [DeleteConfirmationComponent, EditCourseComponent],
   imports: [
     BrowserModule,
     FormsModule,

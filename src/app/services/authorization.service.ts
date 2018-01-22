@@ -8,7 +8,6 @@ export class AuthorizationService {
 
   newUser: User;
   isAuthenticated: boolean;
-  // isAuth = new EventEmitter<boolean>();
 
   private subject = new Subject<boolean>();
 

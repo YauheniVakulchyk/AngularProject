@@ -19,16 +19,16 @@
   float: left;
 }
 
-.creationDate {
+.date {
   float: left;
   text-align: right;
 }
 
-.title, .creationDate, .duration {
+.title, .date, .duration {
   margin-top: 15px;
 }
 
-.title, .creationDate, .duration, .description {
+.title, .date, .duration, .description {
   margin-left: 35px;
 }
 
@@ -42,7 +42,7 @@
   width: 25%;
 }
 
-.creationDate, .duration {
+.date, .duration {
  width: 16%;
 }
 

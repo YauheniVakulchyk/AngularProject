@@ -4,10 +4,12 @@
   <div *ngIf="!isAuthenticated">
     <app-login-page></app-login-page>
   </div>
-  <div *ngIf="isAuthenticated">
+  <div *ngIf="isAuthenticated && !isAddPage">
     <app-courses-page></app-courses-page>
   </div>
-
+  <div *ngIf="isAuthenticated && isAddPage">
+    <app-add-course></app-add-course>
+  </div>
   <app-footer></app-footer>
 </div>
 

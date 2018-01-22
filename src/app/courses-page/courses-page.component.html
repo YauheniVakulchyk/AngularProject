@@ -5,12 +5,12 @@
     <div class="noData">No data. Feel free to add new course</div>
   </ng-template>
   <ng-template #elseBlock>
-    <div *ngFor="let course of courses | sorting">
+    <div *ngFor="let course of courses | sorting | outdated">
       <app-course
         [title]="course.title"
         [duration]="course.duration"
         [description]="course.description"
-        [creationDate]="course.creationDate"
+        [date]="course.date"
         [hasStar]="course.hasStar"
         [id]="course.id">
       </app-course>

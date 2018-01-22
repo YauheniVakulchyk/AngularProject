@@ -1,0 +1,17 @@
+<div class="addCourseContainer">
+  <div class="innerContainer">
+    <p>Title</p><input type='text' [(ngModel)]='title' placeholder="Title"><br>
+    <p>Description</p><input type='text' [(ngModel)]='description' placeholder="Description">
+    <p>Date</p><input type='date' [(ngModel)]='date' placeholder="New date">
+    <p>Duration</p><input type='number' class="duration" [(ngModel)]='duration' placeholder="New duration min."><p class="outDuration">{{duration | durationPipe}}</p>
+
+    <div style="width: 100%; margin: 6px; float: left">
+      <p class="addStar">Add star to course?</p>
+      <input class="checkbox" type="checkbox" [checked]="hasStar" (change)="hasStar = !hasStar" />
+    </div>
+    <div class="buttons">
+      <button (click)="cancel()">Cancel</button>
+      <button (click)="addCourse()">Save</button>
+    </div>
+  </div>
+</div>

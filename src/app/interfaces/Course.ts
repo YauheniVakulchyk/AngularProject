@@ -3,7 +3,7 @@ interface Course {
   title: string;
   duration: number;
   description: string;
-  creationDate: Date;
+  date: Date;
 
   // editCourse(newDescription: string): void;
  // delete(): void;

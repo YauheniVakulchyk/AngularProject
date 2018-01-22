@@ -9,10 +9,10 @@ export class SortingPipe implements PipeTransform {
     console.log('Sorting pipe');
 
      courses.sort(function (a, b) {
-        if (a.creationDate.getTime() > b.creationDate.getTime()) {
+        if (a.date.getTime() > b.date.getTime()) {
           return 1;
         }
-        if (a.creationDate.getTime() < b.creationDate.getTime()) {
+        if (a.date.getTime() < b.date.getTime()) {
           return -1;
         }
         return 0;

@@ -22,7 +22,7 @@ export class CoursesPageComponent implements OnInit {
     console.log('CoursesPageComponent init');
     this.courses = this.courseService.getList();
     this.courseService.isUpdated.subscribe((data) => {
-      this.modalService.close();
+      // this.modalService.close();
       this.courses = this.courseService.getList();
       this.checkList(this.courses);
     });

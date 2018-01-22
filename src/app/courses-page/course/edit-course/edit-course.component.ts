@@ -29,9 +29,9 @@ export class EditCourseComponent implements OnInit {
     this.hasStar = course.hasStar;
   }
 
-  editCourse() {
+ /* editCourse() {
     this.courseService.editCourse(this.courseId, this.title, this.duration, this.description, this.hasStar);
-  }
+  }*/
 
   close() {
     this.courseService.closeWindow();

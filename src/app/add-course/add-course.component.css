@@ -1,13 +1,16 @@
-.modalWindow{
-  height: 250px;
-  margin: 50px;
-  text-align: center;
-  font-style: italic;
-  font-family: Comic Sans MS, Comic Sans, cursive;
+.addCourseContainer{
+  margin: 5px;
+  border: ridge;
+  background-color: whiteSmoke;
+  min-height: 515px;
 }
 
 .addText{
   width: 100%;
+}
+p{
+  float: left;
+  width: 35%;
 }
 
 .addStar{
@@ -26,6 +29,15 @@
 input{
   width: 60%;
   margin: 6px;
+  float: left;
+}
+
+.innerContainer{
+  width: 450px;
+  position: relative;
+  margin: 100px auto 100px;
+  background-color: whiteSmoke;
+  min-height: 50%;
 }
 
 .buttons {
@@ -42,4 +54,17 @@ button {
   margin: 8px 0;
   border: none;
   width: 30%;
+  margin-left: 55px;
+}
+
+
+.duration{
+  width: 30%;
+}
+
+.outDuration{
+  width: 30%;
+  float: left;
+  margin-top: 8px;
+  margin-left: 10px;
 }
