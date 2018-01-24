@@ -10,22 +10,31 @@ import {Subscription} from 'rxjs/Subscription';
 })
 export class LogoComponent implements OnInit {
   isAuthenticated: boolean;
-  subscription: Subscription;
   username: string;
 
   constructor(private authorizationService: AuthorizationService) {}
 
   ngOnInit() {
-    this.subscription = this.authorizationService.getMessage().subscribe(isAuthenticated => {
-      this.isAuthenticated = isAuthenticated;
-      if (this.isAuthenticated === true) {
-        this.username = this.authorizationService.getUserInfo().name;
-      }
-    });
+    this.authorizationService.newUser.subscribe(
+       (user) => {
+         this.username = user.name;
+         this.isAuthenticated = user.isAuthenticated;
+      },
+       (err) => {
+        console.log('Error: ' + err);
+      },
+       () => {
+        console.log('Completed');
+      });
   }
 
   logout() {
-    this.authorizationService.logout();
+    const user: User = {
+      name: null,
+      password: null,
+      isAuthenticated: false
+    }
+    this.authorizationService.newUser.next(user);
   }
 
 

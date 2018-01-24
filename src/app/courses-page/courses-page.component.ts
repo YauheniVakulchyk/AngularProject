@@ -13,7 +13,6 @@ export class CoursesPageComponent implements OnInit {
 
   courses: CourseComponent[];
   isListEmpty: boolean = false;
-  searchText: string;
 
   constructor(private courseService: CourseService, private modalService: ModalService, private findPipe: FindPipe) {
   }
@@ -21,15 +20,15 @@ export class CoursesPageComponent implements OnInit {
   ngOnInit() {
     console.log('CoursesPageComponent init');
     this.courses = this.courseService.getList();
-    this.courseService.isUpdated.subscribe((data) => {
-      // this.modalService.close();
-      this.courses = this.courseService.getList();
+
+    this.courseService.coursesData.subscribe(courses => {
+      this.courses = courses;
       this.checkList(this.courses);
     });
 
-    this.courseService.searchText.subscribe((data) => {
+    this.courseService.searchText.subscribe((searchText) => {
       this.courses = this.courseService.getList();
-      this.courses = this.findPipe.transform(this.courses, data);
+      this.courses = this.findPipe.transform(this.courses, searchText);
       this.checkList(this.courses);
     });
   }

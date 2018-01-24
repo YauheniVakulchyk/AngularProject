@@ -38,9 +38,8 @@ export class CourseComponent implements Course, OnInit, OnChanges { // implement
   }
 
   openEditPage() {
-    //this.modalService.open(EditCourseComponent);
-    //this.modalService.setId(this.id);
-    this.courseService.setIsAddPage(true, this.id);
+    this.courseService.editCourseId.next(this.id);
+    this.courseService.isAddPage.next(true);
   }
 
   ngOnChanges() {

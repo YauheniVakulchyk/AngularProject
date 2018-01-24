@@ -12,7 +12,7 @@ export class DeleteConfirmationComponent implements OnInit {
 
   courseId: number;
 
-  constructor(private courseService: CourseService) {}
+  constructor(private courseService: CourseService, private modalService: ModalService) {}
 
   // @Output() someEvent = new EventEmitter<number>();
 
@@ -23,10 +23,11 @@ export class DeleteConfirmationComponent implements OnInit {
   delete() {
     console.log('delete');
     this.courseService.deleteCourse(this.courseId);
+    this.modalService.close();
   }
 
   close() {
-    this.courseService.closeWindow();
+    this.modalService.close();
   }
 
   ngOnInit() {

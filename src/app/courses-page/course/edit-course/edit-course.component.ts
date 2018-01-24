@@ -34,7 +34,7 @@ export class EditCourseComponent implements OnInit {
   }*/
 
   close() {
-    this.courseService.closeWindow();
+    // this.courseService.closeWindow();
   }
 
   ngOnInit() {

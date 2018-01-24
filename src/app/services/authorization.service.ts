@@ -2,37 +2,38 @@ import {CourseComponent} from '../courses-page/course/course.component';
 import {EventEmitter, Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
+import {ReplaySubject} from 'rxjs/ReplaySubject';
 
 @Injectable()
 export class AuthorizationService {
 
-  newUser: User;
-  isAuthenticated: boolean;
+  newUser = new ReplaySubject<User>();
+ // isAuthenticated: boolean;
 
-  private subject = new Subject<boolean>();
+ // private subject = new Subject<boolean>();
 
-  sendMessage(message: boolean) {
+  /*sendMessage(message: boolean) {
     this.subject.next(message);
-  }
+  }*/
 
-  clearMessage() {
+  /*clearMessage() {
     this.subject.next();
-  }
+  }*/
 
-  getMessage(): Observable<boolean> {
+  /*getMessage(): Observable<boolean> {
     return this.subject.asObservable();
-  }
+  }*/
 
   constructor() {
-    this.isAuthenticated = false;
+   // this.isAuthenticated = false;
   }
 
-  buildUser(userName: string, userPassword: string): User {
+  /*buildUser(userName: string, userPassword: string): User {
 
     return { name: userName, password: userPassword };
-  }
+  }*/
 
-  login(userName: string, userPassword: string) {
+  /*login(userName: string, userPassword: string) {
     this.newUser = this.buildUser(userName, userPassword);
     console.log(this.newUser.name);
     console.log(this.newUser.password);
@@ -44,9 +45,9 @@ export class AuthorizationService {
     this.newUser = null;
     this.isAuthenticated = false;
     this.clearMessage();
-  }
+  }*/
 
-  getUserInfo(): User {
+  /*getUserInfo(): User {
     return this.newUser;
-  }
+  }*/
 }

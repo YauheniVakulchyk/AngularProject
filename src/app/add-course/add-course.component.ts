@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {CourseService} from '../services/course.service';
-import {ModalService} from '../services/modal.service';
 
 @Component({
   selector: 'app-add-course',
@@ -9,31 +8,45 @@ import {ModalService} from '../services/modal.service';
 })
 export class AddCourseComponent implements OnInit {
 
+  id: number;
   title: string;
   duration: number;
   description: string;
   date: Date;
   hasStar: boolean;
 
+  user: User;
+
   constructor(private courseService: CourseService) {}
 
   addCourse() {
-    this.courseService.editCourse(this.title, this.duration, this.description, this.hasStar, this.courseService.editCourseItem);
-    this.courseService.setIsAddPage(false);
+    this.courseService.editCourse(this.title, this.duration, this.description, this.hasStar, this.id);
+    this.courseService.isAddPage.next(false);
   }
 
   cancel() {
-    this.courseService.setIsAddPage(false);
+    this.courseService.isAddPage.next(false);
   }
 
   ngOnInit() {
-    const course = this.courseService.getCourse(this.courseService.editCourseItem);
-    console.log(course);
-    this.title = course.title;
-    this.duration = course.duration;
-    this.description = course.description;
-    this.hasStar = course.hasStar;
-    console.log("Date = " + course.date);
-    this.date = course.date;
+    this.id = this.courseService.idOfEditCourse;
+
+    if (this.id != null) {
+      console.log('editCourseItem2');
+      const course = this.courseService.getCourse(this.id);
+      console.log(course);
+      this.title = course.title;
+      this.duration = course.duration;
+      this.description = course.description;
+      this.hasStar = course.hasStar;
+      this.date = course.date;
+    } else {
+      console.log('editCourseItem3');
+      this.title = null;
+      this.duration = 0;
+      this.description = null;
+      this.hasStar = false;
+      this.date = null;
+    }
   }
 }

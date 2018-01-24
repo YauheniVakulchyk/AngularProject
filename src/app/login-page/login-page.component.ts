@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthorizationService} from '../services/authorization.service';
+// import {User} from '../classes/User';
 
 @Component({
   selector: 'app-login-page',
@@ -15,7 +16,12 @@ export class LoginPageComponent implements OnInit {
   }
 
   login() {
-    this.authorizationService.login(this.username, this.password);
+    const user: User = {
+      name: this.username,
+      password: this.password,
+      isAuthenticated: true
+    }
+    this.authorizationService.newUser.next(user);
   }
 
   ngOnInit() {

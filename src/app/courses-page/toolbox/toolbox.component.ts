@@ -19,14 +19,15 @@ export class ToolboxComponent implements OnInit {
 
   open() {
    // this.modalService.open(AddCourseComponent);
-   this.courseService.setIsAddPage(true, null);
+   this.courseService.editCourseId.next(null);
+   this.courseService.isAddPage.next(true);
   }
 
   ngOnInit() {
   }
 
   findItem() {
-    this.courseService.setSearchTest(this.searchText);
+    this.courseService.searchText.next(this.searchText);
   }
 
 }
