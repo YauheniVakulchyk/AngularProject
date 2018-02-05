@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.isAddPage = false;
 
-    this.authorizationService.newUser.map(user => this.changeUser(user)).subscribe(
+    this.authorizationService.newUser.subscribe(
       (user) => {
         this.isAuthenticated = user.isAuthenticated;
       },
@@ -34,8 +34,4 @@ export class AppComponent implements OnInit {
 
   }
 
-  changeUser(user: User): User{
-    user.name = 'Dear ' + user.name;
-    return user;
-  }
 }

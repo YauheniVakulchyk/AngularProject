@@ -1,11 +1,13 @@
 interface User {
-  name: string;
-  password: string;
   isAuthenticated: boolean;
 
-  /*constructor(name: string,  password: string, isAuthenticated: boolean) {
-    this.name = name;
-    this.password = password;
-    this.isAuthenticated = isAuthenticated;
-  }*/
+  id: number;
+  fakeToken: string;
+  name: {
+    first: string;
+    last: string;
+  };
+  login: string;
+  password: string;
+
 }

@@ -22,6 +22,7 @@ import {DurationPipe} from './pipes/duration.pipe';
 import {SortingPipe} from './pipes/sorting.pipe';
 import {FindPipe} from './pipes/find.pipe';
 import {OutdatedPipe} from './pipes/outdated.pipe';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import {OutdatedPipe} from './pipes/outdated.pipe';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     NgbModule.forRoot(),
   ],
   providers: [AuthorizationService, CourseService, ModalService, FindPipe],

@@ -16,12 +16,12 @@ export class LoginPageComponent implements OnInit {
   }
 
   login() {
-    const user: User = {
-      name: this.username,
-      password: this.password,
-      isAuthenticated: true
-    }
-    this.authorizationService.newUser.next(user);
+    this.authorizationService.getData(this.username, this.password).subscribe((users: User[]) => {
+      if (users.length > 0) {
+        users[0].isAuthenticated = true;
+        this.authorizationService.newUser.next(users[0]);
+      }
+    });
   }
 
   ngOnInit() {

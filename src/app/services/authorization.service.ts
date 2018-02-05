@@ -1,53 +1,37 @@
-import {CourseComponent} from '../courses-page/course/course.component';
+// import {CourseComponent} from '../courses-page/course/course.component';
 import {EventEmitter, Injectable} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
+// import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
+import {HttpClient, HttpParams} from '@angular/common/http';
+// import {RequestMethod, RequestOptions, Response} from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class AuthorizationService {
 
   newUser = new ReplaySubject<User>();
- // isAuthenticated: boolean;
 
- // private subject = new Subject<boolean>();
+  baseUrl: string;
 
-  /*sendMessage(message: boolean) {
-    this.subject.next(message);
-  }*/
-
-  /*clearMessage() {
-    this.subject.next();
-  }*/
-
-  /*getMessage(): Observable<boolean> {
-    return this.subject.asObservable();
-  }*/
-
-  constructor() {
-   // this.isAuthenticated = false;
+  constructor(private http: HttpClient) {
+    this.baseUrl = 'http://localhost:4001/users';
   }
 
-  /*buildUser(userName: string, userPassword: string): User {
+  getData(login: string, password: string): Observable<User[]> {
 
-    return { name: userName, password: userPassword };
-  }*/
+   /* const headers = new HttpHeaders();
+    headers.append('Content-Type','application/text');*/
 
-  /*login(userName: string, userPassword: string) {
-    this.newUser = this.buildUser(userName, userPassword);
-    console.log(this.newUser.name);
-    console.log(this.newUser.password);
-    this.isAuthenticated = true;
-    this.sendMessage(this.isAuthenticated);
+    const params = new HttpParams()
+      .set('login', login)
+      .set('password', password);
+
+     return this.http.get<User[]>(this.baseUrl, { params: params });
   }
 
-  logout() {
-    this.newUser = null;
-    this.isAuthenticated = false;
-    this.clearMessage();
-  }*/
+  private handleError(error: Response) {
+    return Observable.throw(error.statusText);
+  }
 
-  /*getUserInfo(): User {
-    return this.newUser;
-  }*/
 }

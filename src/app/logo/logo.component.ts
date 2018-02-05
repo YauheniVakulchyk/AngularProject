@@ -11,14 +11,16 @@ import {Subscription} from 'rxjs/Subscription';
 export class LogoComponent implements OnInit {
   isAuthenticated: boolean;
   username: string;
+  user: User;
 
   constructor(private authorizationService: AuthorizationService) {}
 
   ngOnInit() {
     this.authorizationService.newUser.subscribe(
        (user) => {
-         this.username = user.name;
+         this.username = 'Dear ' + user.name.first + ' ' + user.name.last;
          this.isAuthenticated = user.isAuthenticated;
+         this.user = user;
       },
        (err) => {
         console.log('Error: ' + err);
@@ -29,13 +31,8 @@ export class LogoComponent implements OnInit {
   }
 
   logout() {
-    const user: User = {
-      name: null,
-      password: null,
-      isAuthenticated: false
-    }
-    this.authorizationService.newUser.next(user);
+    this.user.isAuthenticated = false;
+    this.authorizationService.newUser.next(this.user);
   }
-
 
 }

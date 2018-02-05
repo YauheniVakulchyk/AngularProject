@@ -1,6 +1,8 @@
 import {CourseComponent} from '../courses-page/course/course.component';
 import {Injectable, OnInit} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {Http} from '@angular/http';
 
 @Injectable()
 export class CourseService {
@@ -19,7 +21,7 @@ export class CourseService {
   public isAddPage = new Subject<boolean>();
   public coursesData = new Subject<any[]>();
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.idOfNewCourse++;
 
     this.editCourseId.subscribe(id => this.idOfEditCourse = id);
@@ -46,9 +48,18 @@ export class CourseService {
     this.coursesData.next(this.courses);
   }
 
-  deleteCourse(id: number) {
-    const course = this.getCourse(id);
-    this.courses = this.courses.filter(e => e !== course);
+  deleteCourse(id: string) {
+    /*const course = this.getCourse(id);
+    this.courses = this.courses.filter(e => e !== course);*/
+
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('authToken', '58ebfdf7f1f558c5c86e17f6');
+
+    const params = new HttpParams().set('id', id);
+
+    this.http.delete('http://localhost:4001/users', { params: params, headers: headers });
+
     this.coursesData.next(this.courses);
   }
 }
