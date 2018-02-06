@@ -28,8 +28,8 @@ export class CourseService {
     this.editCourseId.subscribe(id => this.idOfEditCourse = id);
   }
 
-  getList(): Observable<CourseComponent[]> {
-    return this.http.get<CourseComponent[]>('http://localhost:4002/courses');
+  getList(params?: HttpParams): Observable<CourseComponent[]> {
+    return this.http.get<CourseComponent[]>('http://localhost:4002/courses', {params: params});
   }
 
   getCourse(id: number): Observable<CourseComponent> {

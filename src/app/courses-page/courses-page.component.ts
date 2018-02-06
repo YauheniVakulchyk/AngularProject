@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CourseComponent} from './course/course.component';
 import {CourseService} from '../services/course.service';
 import {FindPipe} from '../pipes/find.pipe';
+import {HttpParams} from '@angular/common/http';
 
 @Component({
   selector: 'app-courses-page',
@@ -29,15 +30,16 @@ export class CoursesPageComponent implements OnInit {
       this.getList();
     });
 
-    /*this.courseService.searchText.subscribe((searchText) => {
-      this.courses = this.courseService.getList();
-      this.courses = this.findPipe.transform(this.courses, searchText);
-      this.checkList(this.courses);
-    });*/
+    this.courseService.searchText.subscribe((searchText) => {
+      console.log('SearchText subscribe = ' + searchText);
+      this.getList(new HttpParams().set('name', searchText));
+      // this.courses = this.findPipe.transform(this.courses, searchText);
+      // this.checkList(this.courses);
+    });
   }
 
-  getList() {
-    this.courseService.getList().subscribe((courses: CourseComponent[]) => {
+  getList(params?: HttpParams) {
+    this.courseService.getList(params).subscribe((courses: CourseComponent[]) => {
       // this.courses = courses;
       console.log(courses);
       this.setCourses((this.currentPage - 1) * 10, courses);

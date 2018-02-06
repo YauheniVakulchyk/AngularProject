@@ -27,6 +27,7 @@ export class ToolboxComponent implements OnInit {
   }
 
   findItem() {
+    console.log('SearchText = ' + this.searchText);
     this.courseService.searchText.next(this.searchText);
   }
 
