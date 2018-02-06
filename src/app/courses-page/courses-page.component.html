@@ -15,5 +15,16 @@
         [id]="course.id">
       </app-course>
     </div>
+
+  <div>
+    <ul *ngIf="pageItems.length > 1" class="pagination">
+
+      <li *ngFor="let page of pageItems">
+        <a class="page" (click)="currentPage = page; getList()">{{page}}</a>
+      </li>
+
+     </ul>
+  </div>
+
   </ng-template>
 </div>
