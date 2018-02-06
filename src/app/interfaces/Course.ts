@@ -1,6 +1,6 @@
 interface Course {
   id: number;
-  title: string;
+  name: string;
   duration: number;
   description: string;
   date: Date;

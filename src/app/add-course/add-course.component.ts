@@ -9,18 +9,18 @@ import {CourseService} from '../services/course.service';
 export class AddCourseComponent implements OnInit {
 
   id: number;
-  title: string;
+  name: string;
   duration: number;
   description: string;
   date: Date;
-  hasStar: boolean;
+  isTopRated: boolean;
 
   user: User;
 
   constructor(private courseService: CourseService) {}
 
   addCourse() {
-    this.courseService.editCourse(this.title, this.duration, this.description, this.hasStar, this.id);
+    //this.courseService.editCourse(this.name, this.duration, this.description, this.isTopRated, this.id);
     this.courseService.isAddPage.next(false);
   }
 
@@ -31,22 +31,22 @@ export class AddCourseComponent implements OnInit {
   ngOnInit() {
     this.id = this.courseService.idOfEditCourse;
 
-    if (this.id != null) {
+    /*if (this.id != null) {
       console.log('editCourseItem2');
       const course = this.courseService.getCourse(this.id);
       console.log(course);
-      this.title = course.title;
+      this.name = course.name;
       this.duration = course.duration;
       this.description = course.description;
-      this.hasStar = course.hasStar;
+      this.isTopRated = course.isTopRated;
       this.date = course.date;
     } else {
       console.log('editCourseItem3');
-      this.title = null;
+      this.name = null;
       this.duration = 0;
       this.description = null;
-      this.hasStar = false;
+      this.isTopRated = false;
       this.date = null;
-    }
+    }*/
   }
 }

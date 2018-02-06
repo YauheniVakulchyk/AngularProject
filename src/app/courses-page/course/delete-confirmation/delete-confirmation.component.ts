@@ -22,7 +22,9 @@ export class DeleteConfirmationComponent implements OnInit {
 
   delete() {
     console.log('delete');
-    this.courseService.deleteCourse(this.courseId);
+    this.courseService.deleteCourse(this.courseId).subscribe(data =>
+      this.courseService.coursesData.next(true)
+    );
     this.modalService.close();
   }
 

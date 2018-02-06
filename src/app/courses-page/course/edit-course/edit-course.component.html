@@ -1,11 +1,11 @@
 <div class="modalWindow">
   <p class="editText">Edit course</p>
-  <input type='text' [(ngModel)]='title' placeholder="New title">
+  <input type='text' [(ngModel)]='name' placeholder="New title">
   <input type='number' [(ngModel)]='duration' placeholder="New duration min.">
   <input type='text' [(ngModel)]='description' placeholder="New description">
   <div style="width: 100%; margin: 6px;">
     <p class="editStar">Does course have star?</p>
-    <input class="checkbox" type="checkbox" [checked]="hasStar" (change)="hasStar = !hasStar" />
+    <input class="checkbox" type="checkbox" [checked]="isTopRated" (change)="isTopRated = !isTopRated" />
   </div>
   <div class="buttons">
     <button (click)="close()">Cancel</button>

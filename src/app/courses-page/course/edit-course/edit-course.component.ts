@@ -10,23 +10,23 @@ import {Subject} from 'rxjs/Subject';
 export class EditCourseComponent implements OnInit {
 
   courseId: number;
-  title: string;
+  name: string;
   duration: number;
   description: string;
-  hasStar: boolean;
+  isTopRated: boolean;
 
   constructor(private courseService: CourseService) {
 
   }
 
   setValues(id: number) {
-    this.courseId = id;
+    /*this.courseId = id;
     const course = this.courseService.getCourse(id);
     console.log(course);
-    this.title = course.title;
+    this.name = course.name;
     this.duration = course.duration;
     this.description = course.description;
-    this.hasStar = course.hasStar;
+    this.isTopRated = course.isTopRated;*/
   }
 
  /* editCourse() {

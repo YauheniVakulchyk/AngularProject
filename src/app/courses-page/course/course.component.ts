@@ -11,12 +11,13 @@ import {EditCourseComponent} from './edit-course/edit-course.component';
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.css']
 })
-export class CourseComponent implements Course, OnInit, OnChanges { // implements OnInit {
+export class CourseComponent implements Course, OnInit, OnChanges {
+
   @Input()
   id: number;
 
   @Input()
-  title: string;
+  name: string;
 
   @Input()
   duration: number;
@@ -28,7 +29,19 @@ export class CourseComponent implements Course, OnInit, OnChanges { // implement
   date: Date;
 
   @Input()
-  hasStar: boolean;
+  isTopRated: boolean;
+
+ /* @Input()
+  authors": [
+    {
+      id: number;
+      firstName: string;
+      lastName: string;
+    }
+  ]*/
+
+  @Input()
+  length: string;
 
   constructor(private modalService: ModalService, private courseService: CourseService) {}
 

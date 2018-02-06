@@ -12,7 +12,7 @@ export class FindPipe implements PipeTransform {
     if (!searchText) { return courses; }
     searchText = searchText.toLowerCase();
     return courses.filter( course => {
-      return course.title.toLowerCase().includes(searchText);
+      return course.name.toLowerCase().includes(searchText);
     });
   }
 }

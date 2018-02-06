@@ -19,18 +19,25 @@ export class CoursesPageComponent implements OnInit {
 
   ngOnInit() {
     console.log('CoursesPageComponent init');
-    this.courses = this.courseService.getList();
+   // this.courses = this.courseService.getList();
 
-    this.courseService.coursesData.subscribe(courses => {
+    this.courseService.getList().subscribe((courses: CourseComponent[]) => {
       this.courses = courses;
-      this.checkList(this.courses);
+      console.log(courses);
     });
 
-    this.courseService.searchText.subscribe((searchText) => {
+    this.courseService.coursesData.subscribe(data => {
+      this.courseService.getList().subscribe((courses: CourseComponent[]) => {
+        this.courses = courses;
+        this.checkList(this.courses);
+      });
+    });
+
+    /*this.courseService.searchText.subscribe((searchText) => {
       this.courses = this.courseService.getList();
       this.courses = this.findPipe.transform(this.courses, searchText);
       this.checkList(this.courses);
-    });
+    });*/
   }
 
   checkList(courses: CourseComponent[]) {

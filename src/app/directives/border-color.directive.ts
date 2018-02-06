@@ -7,13 +7,10 @@ export class BorderColorDirective implements OnInit {
 
   @Input() courseDate: Date;
 
-  private borderColor;
+  private borderColor = 'blue';
 
   ngOnInit() {
-    /*console.log('input = ' + this.courseDate);
-    const currentDateTime = new Date().getTime();
-    const courseDateTime = this.courseDate.getTime();*/
-    const twoWeekAgoDate = new Date();
+    /*const twoWeekAgoDate = new Date();
     twoWeekAgoDate.setDate(twoWeekAgoDate.getDate() - 14);
     const twoWeekAgoDateTime = twoWeekAgoDate.getTime();
     if (this.courseDate.getTime() < new Date().getTime() && this.courseDate.getTime() >= twoWeekAgoDateTime) {
@@ -21,7 +18,7 @@ export class BorderColorDirective implements OnInit {
     }
     if (this.courseDate.getTime() > new Date().getTime()) {
       this.borderColor = 'blue';
-    }
+    }*/
   }
   constructor() {}
 
