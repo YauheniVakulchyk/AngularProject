@@ -36,18 +36,14 @@ export class CourseService {
     return this.http.get<CourseComponent>('http://localhost:4002/courses/' + id);
   }
 
-  /*editCourse(newName: string, newDuration: number, newDescription: string, newisTopRated: boolean, idOfCourse?: number) {
-    if ( idOfCourse != null ) {
-      const course = this.getCourse(idOfCourse);
-      this.courses = this.courses.filter(e => e !== course);
-      this.courses.push({id: idOfCourse, date: new Date(), name: newName, duration: newDuration, description: newDescription, isTopRated: newisTopRated});
-    } else {
-      this.courses.push({id: this.idOfNewCourse, date: new Date(), name: newName, duration: newDuration, description: newDescription, isTopRated: newisTopRated });
-      this.idOfNewCourse++;
-    }
+  updateCourse(course: CourseComponent) {
+    return this.http.put('http://localhost:4002/courses/' + course.id, course);
+  }
 
-    this.coursesData.next(true);
-  }*/
+  addCourse(course: Course) {
+    console.log('course add course = ' + course.name);
+    return this.http.post('http://localhost:4002/courses', course);
+  }
 
   deleteCourse(id: number): Observable<Object> {
     /*const course = this.getCourse(id);

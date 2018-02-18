@@ -5,6 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DurationPipe implements PipeTransform {
   transform(duration: number): any {
+    console.log('duration = ' + duration);
     if (duration <= 0) {
       return '0 min.';
     }

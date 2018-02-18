@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CourseService} from '../services/course.service';
+import {CourseComponent} from '../courses-page/course/course.component';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-add-course',
@@ -9,19 +11,41 @@ import {CourseService} from '../services/course.service';
 export class AddCourseComponent implements OnInit {
 
   id: number;
-  name: string;
-  duration: number;
-  description: string;
-  date: Date;
-  isTopRated: boolean;
+  course: CourseComponent;
 
-  user: User;
+  myForm: FormGroup;
 
-  constructor(private courseService: CourseService) {}
+  constructor(private courseService: CourseService, private formBuilder: FormBuilder) {
+    this.myForm = formBuilder.group({
+      name: ['', [Validators.required, Validators.maxLength(50)]],
+      description: ['', [ Validators.required, Validators.maxLength(500)]],
+      duration: ['', [ Validators.required]],
+      date: ['', [ Validators.required]],
+      isTopRated: ['']
+    });
+  }
 
   addCourse() {
-    //this.courseService.editCourse(this.name, this.duration, this.description, this.isTopRated, this.id);
-    this.courseService.isAddPage.next(false);
+    if (this.id != null) {
+      this.course.name = this.myForm.controls['name'].value;
+      this.course.duration = this.myForm.controls['duration'].value;
+      this.course.description = this.myForm.controls['description'].value;
+      this.course.isTopRated = this.myForm.controls['isTopRated'].value;
+      this.courseService.updateCourse(this.course).subscribe(() => {
+        this.courseService.isAddPage.next(false);
+      });
+    } else {
+      this.courseService.addCourse({
+        name: this.myForm.controls['name'].value,
+        id: null,
+        duration: this.myForm.controls['duration'].value,
+        description: this.myForm.controls['description'].value,
+        date: new Date,
+        isTopRated: this.myForm.controls['isTopRated'].value
+      }).subscribe(() => {
+        this.courseService.isAddPage.next(false);
+      });
+    }
   }
 
   cancel() {
@@ -31,22 +55,17 @@ export class AddCourseComponent implements OnInit {
   ngOnInit() {
     this.id = this.courseService.idOfEditCourse;
 
-    /*if (this.id != null) {
-      console.log('editCourseItem2');
-      const course = this.courseService.getCourse(this.id);
-      console.log(course);
-      this.name = course.name;
-      this.duration = course.duration;
-      this.description = course.description;
-      this.isTopRated = course.isTopRated;
-      this.date = course.date;
-    } else {
-      console.log('editCourseItem3');
-      this.name = null;
-      this.duration = 0;
-      this.description = null;
-      this.isTopRated = false;
-      this.date = null;
-    }*/
+    if (this.id != null) {
+      this.courseService.getCourse(this.id).subscribe((course: CourseComponent) => {
+       this.course = course;
+       this.myForm.setValue({
+         name: course.name,
+         description: course.description,
+         duration: 100,
+         date: course.date,
+         isTopRated: course.isTopRated
+       });
+      });
+    }
   }
 }

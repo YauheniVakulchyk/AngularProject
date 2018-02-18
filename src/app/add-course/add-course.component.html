@@ -1,17 +1,19 @@
-<div class="addCourseContainer">
-  <div class="innerContainer">
-    <p>Title</p><input type='text' [(ngModel)]='name' placeholder="Title"><br>
-    <p>Description</p><input type='text' [(ngModel)]='description' placeholder="Description">
-    <p>Date</p><input type='date' [(ngModel)]='date' placeholder="New date">
-    <p>Duration</p><input type='number' class="duration" [(ngModel)]='duration' placeholder="New duration min."><p class="outDuration">{{duration | durationPipe}}</p>
+<form [formGroup]="myForm" novalidate (ngSubmit)="submit()">
+  <div class="addCourseContainer">
+    <div class="innerContainer">
+      <p>Title</p><input type='text' [class.errorBorderColor]="myForm.controls['name'].invalid" formControlName="name" placeholder="Title">
+      <p>Description</p><input type='text' [class.errorBorderColor]="myForm.controls['description'].invalid" formControlName="description" placeholder="Description">
+      <p>Date</p><input type='date' [class.errorBorderColor]="myForm.controls['date'].invalid" formControlName="date" placeholder="New date">
+      <p>Duration</p><input type='number' [class.errorBorderColor]="myForm.controls['duration'].invalid" class="duration" formControlName="duration" placeholder="New duration min."><p class="outDuration">{{myForm.controls['duration'].value | durationPipe}}</p>
 
-    <div style="width: 100%; margin: 6px; float: left">
-      <p class="addStar">Add star to course?</p>
-      <input class="checkbox" type="checkbox" [checked]="isTopRated" (change)="isTopRated = !isTopRatedr" />
-    </div>
-    <div class="buttons">
-      <button (click)="cancel()">Cancel</button>
-      <button (click)="addCourse()">Save</button>
+      <div style="width: 100%; margin: 6px; float: left">
+        <p class="addStar">Add star to course?</p>
+        <input class="checkbox" type="checkbox" formControlName="isTopRated" [checked]="isTopRated" (change)="isTopRated = !isTopRated" />
+      </div>
+      <div class="buttons">
+        <button (click)="cancel()">Cancel</button>
+        <button (click)="addCourse()" [disabled]="myForm.invalid">Save</button>
+      </div>
     </div>
   </div>
-</div>
+</form>

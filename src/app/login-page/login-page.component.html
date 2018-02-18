@@ -1,7 +1,9 @@
-<div class="loginContainer">
-  <div class="login">
-      <input type="text" placeholder="Enter login" name="username" required [(ngModel)]='username'>
-      <input type="password" placeholder="Enter password" name="password" required [(ngModel)]='password'>
-    <button (click)="login()">Login</button>
+<form [formGroup]="myForm" novalidate (ngSubmit)="submit()">
+  <div class="loginContainer">
+    <div class="login">
+        <input type="text" placeholder="Enter login" name="username" formControlName="userName">
+        <input type="password" placeholder="Enter password" name="password" formControlName="password">
+      <button (click)="login()" [disabled]="myForm.invalid">Login</button>
+    </div>
   </div>
-</div>
+</form>

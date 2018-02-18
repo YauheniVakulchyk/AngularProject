@@ -26,6 +26,10 @@ p{
   width: 10%;
 }
 
+.errorBorderColor{
+  border-color: red;
+}
+
 input{
   width: 60%;
   margin: 6px;

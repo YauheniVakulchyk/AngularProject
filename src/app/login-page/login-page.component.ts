@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthorizationService} from '../services/authorization.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 // import {User} from '../classes/User';
 
 @Component({
@@ -9,14 +10,24 @@ import {AuthorizationService} from '../services/authorization.service';
 })
 export class LoginPageComponent implements OnInit {
 
-  username: string;
-  password: string;
+  // username: string;
+  // password: string;
 
-  constructor(private authorizationService: AuthorizationService) {
+  myForm: FormGroup;
+
+  constructor(private authorizationService: AuthorizationService, private formBuilder: FormBuilder) {
+
+    this.myForm = formBuilder.group({
+
+      'userName': ['', [Validators.required]],
+      'password': ['', [ Validators.required]]
+    });
+
   }
 
   login() {
-    this.authorizationService.getData(this.username, this.password).subscribe((users: User[]) => {
+    console.log('login-login');
+    this.authorizationService.getData(this.myForm.controls['userName'].value, this.myForm.controls['password'].value).subscribe((users: User[]) => {
       if (users.length > 0) {
         users[0].isAuthenticated = true;
         this.authorizationService.newUser.next(users[0]);
