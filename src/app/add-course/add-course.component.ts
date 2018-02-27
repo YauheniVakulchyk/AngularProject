@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {CourseService} from '../services/course.service';
 import {CourseComponent} from '../courses-page/course/course.component';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Subscription} from 'rxjs/Subscription';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-course',
@@ -15,7 +17,11 @@ export class AddCourseComponent implements OnInit {
 
   myForm: FormGroup;
 
-  constructor(private courseService: CourseService, private formBuilder: FormBuilder) {
+  private routeSubscription: Subscription;
+
+  constructor(private courseService: CourseService, private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router) {
+
+    this.routeSubscription = route.params.subscribe(params => this.id = params['id']);
     this.myForm = formBuilder.group({
       name: ['', [Validators.required, Validators.maxLength(50)]],
       description: ['', [ Validators.required, Validators.maxLength(500)]],
@@ -26,34 +32,26 @@ export class AddCourseComponent implements OnInit {
   }
 
   addCourse() {
-    if (this.id != null) {
-      this.course.name = this.myForm.controls['name'].value;
-      this.course.duration = this.myForm.controls['duration'].value;
-      this.course.description = this.myForm.controls['description'].value;
-      this.course.isTopRated = this.myForm.controls['isTopRated'].value;
-      this.courseService.updateCourse(this.course).subscribe(() => {
-        this.courseService.isAddPage.next(false);
-      });
-    } else {
-      this.courseService.addCourse({
-        name: this.myForm.controls['name'].value,
-        id: null,
-        duration: this.myForm.controls['duration'].value,
-        description: this.myForm.controls['description'].value,
-        date: new Date,
-        isTopRated: this.myForm.controls['isTopRated'].value
-      }).subscribe(() => {
-        this.courseService.isAddPage.next(false);
-      });
-    }
+
+    this.courseService.updateCourse({
+      name: this.myForm.controls['name'].value,
+      id: this.id,
+      duration: this.myForm.controls['duration'].value,
+      description: this.myForm.controls['description'].value,
+      date: new Date,
+      isTopRated: this.myForm.controls['isTopRated'].value
+    }).subscribe(() => {
+      this.router.navigate(['/courses']);
+    });
+
   }
 
   cancel() {
-    this.courseService.isAddPage.next(false);
+    this.router.navigate(['/courses']);
   }
 
   ngOnInit() {
-    this.id = this.courseService.idOfEditCourse;
+    // this.id = this.courseService.idOfEditCourse;
 
     if (this.id != null) {
       this.courseService.getCourse(this.id).subscribe((course: CourseComponent) => {

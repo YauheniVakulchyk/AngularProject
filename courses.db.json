@@ -5,7 +5,7 @@
       "name": "nisi ex incididunt aliquip",
       "description": "Commodo excepteur velit in consectetur sit esse Lorem occaecat labore laboris et. Deserunt fugiat ea aliquip labore culpa fugiat labore incididunt. Duis ex mollit quis aliquip eiusmod.",
       "isTopRated": false,
-      "date": "2016-11-03T04:24:34+00:00",
+      "date": "2018-02-27T19:58:40.624Z",
       "authors": [
         {
           "id": 612,
@@ -23,14 +23,15 @@
           "lastName": "Perez"
         }
       ],
-      "length": 31
+      "length": 31,
+      "duration": 100
     },
     {
       "id": 8464,
-      "name": "dfv",
+      "name": "dfvdftyhtyhty",
       "description": "kknkn",
       "isTopRated": true,
-      "date": "2017-07-07T10:38:59+00:00",
+      "date": "2018-02-27T19:44:52.936Z",
       "authors": [
         {
           "id": 5524,
@@ -49,7 +50,7 @@
         }
       ],
       "length": 269,
-      "duration": 25
+      "duration": 100
     },
     {
       "id": 5834,
@@ -153,9 +154,9 @@
     },
     {
       "id": 2698,
-      "name": "aute do ipsum sint",
-      "description": "Quis laboris laboris nostrud cupidatat sit labore sint amet ipsum elit deserunt in tempor. Excepteur dolor elit enim nostrud consequat eu ullamco ullamco pariatur consectetur duis voluptate. Irure laborum occaecat id veniam culpa aliqua dolor cupidatat enim sunt fugiat.",
-      "isTopRated": true,
+      "name": "aute do ipsum sint9",
+      "description": "Quis laboris laboris nostrud7 cupidatat sit labore sint amet ipsum elit deserunt in tempor. Excepteur dolor elit enim nostrud consequat eu ullamco ullamco pariatur consectetur duis voluptate. Irure laborum occaecat id veniam culpa aliqua dolor cupidatat enim sunt fugiat.",
+      "isTopRated": false,
       "date": "2017-07-14T10:57:08+00:00",
       "authors": [
         {
@@ -164,7 +165,8 @@
           "lastName": "Hines"
         }
       ],
-      "length": 191
+      "length": 191,
+      "duration": 99
     },
     {
       "id": 3747,
@@ -696,6 +698,22 @@
       "description": "dsc",
       "date": "2018-02-18T19:45:55.153Z",
       "isTopRated": ""
+    },
+    {
+      "name": "yujyujyj",
+      "id": 84672,
+      "duration": 2,
+      "description": "yujyujyuj",
+      "date": "2018-02-27T19:43:50.915Z",
+      "isTopRated": true
+    },
+    {
+      "name": "awqwsq",
+      "duration": 8,
+      "description": "qwsqws",
+      "date": "2018-02-27T19:45:06.398Z",
+      "isTopRated": true,
+      "id": 84673
     }
   ]
 }

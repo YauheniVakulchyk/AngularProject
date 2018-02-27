@@ -11,11 +11,24 @@ import { HttpHeaders } from '@angular/common/http';
 export class AuthorizationService {
 
   newUser = new ReplaySubject<User>();
+  user: User;
 
   baseUrl: string;
 
   constructor(private http: HttpClient) {
     this.baseUrl = 'http://localhost:4001/users';
+    this.user = null;
+
+    this.newUser.subscribe(
+      (user) => {
+        this.user = user;
+      },
+      (err) => {
+        console.log('Error: ' + err);
+      },
+      () => {
+        console.log('Completed');
+      });
   }
 
   getData(login: string, password: string): Observable<User[]> {
@@ -32,6 +45,13 @@ export class AuthorizationService {
 
   private handleError(error: Response) {
     return Observable.throw(error.statusText);
+  }
+
+  public isAuthenticated(): boolean {
+    if ( this.user != null && this.user.isAuthenticated != null) {
+      return this.user.isAuthenticated;
+    }
+    return false;
   }
 
 }

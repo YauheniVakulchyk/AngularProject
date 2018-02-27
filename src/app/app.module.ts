@@ -23,7 +23,18 @@ import {SortingPipe} from './pipes/sorting.pipe';
 import {FindPipe} from './pipes/find.pipe';
 import {OutdatedPipe} from './pipes/outdated.pipe';
 import {HttpClientModule} from '@angular/common/http';
+import {RouterModule, Routes} from '@angular/router';
+import {NotFoundComponent} from './not-found/not-found.component';
+import {CustomGuard} from './services/CustomGuard';
 
+// определение маршрутов
+const appRoutes: Routes = [
+  { path: '', component: LoginPageComponent},
+  { path: 'courses', component: CoursesPageComponent, canActivate: [CustomGuard]},
+  { path: 'courses/new', component: AddCourseComponent, canActivate: [CustomGuard]},
+  { path: 'courses/:id', component: AddCourseComponent, canActivate: [CustomGuard]},
+  { path: '**', component: NotFoundComponent }
+];
 
 @NgModule({
   declarations: [
@@ -42,6 +53,7 @@ import {HttpClientModule} from '@angular/common/http';
     DurationPipe,
     SortingPipe,
     OutdatedPipe,
+    NotFoundComponent,
     FindPipe
   ],
   entryComponents: [DeleteConfirmationComponent, EditCourseComponent],
@@ -50,9 +62,10 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes),
     NgbModule.forRoot(),
   ],
-  providers: [AuthorizationService, CourseService, ModalService, FindPipe],
+  providers: [AuthorizationService, CourseService, ModalService, FindPipe, CustomGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

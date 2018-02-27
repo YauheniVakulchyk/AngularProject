@@ -16,16 +16,11 @@ export class CourseService {
 
 
   idOfNewCourse: number;
-  public idOfEditCourse: number = null;
-  public editCourseId = new Subject<number>();
   public searchText = new Subject<string>();
-  public isAddPage = new Subject<boolean>();
   public coursesData = new Subject<boolean>();
 
   constructor(private http: HttpClient) {
     this.idOfNewCourse++;
-
-    this.editCourseId.subscribe(id => this.idOfEditCourse = id);
   }
 
   getList(params?: HttpParams): Observable<CourseComponent[]> {
@@ -36,8 +31,11 @@ export class CourseService {
     return this.http.get<CourseComponent>('http://localhost:4002/courses/' + id);
   }
 
-  updateCourse(course: CourseComponent) {
-    return this.http.put('http://localhost:4002/courses/' + course.id, course);
+  updateCourse(course: Course) {
+    if (course.id != null) {
+      return this.http.put('http://localhost:4002/courses/' + course.id, course);
+    }
+    return this.http.post('http://localhost:4002/courses', course);
   }
 
   addCourse(course: Course) {

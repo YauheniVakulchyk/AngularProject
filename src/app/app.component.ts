@@ -9,15 +9,17 @@ import {CourseService} from './services/course.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  isAuthenticated: boolean;
-  isAddPage: boolean;
+ // isAuthenticated: boolean;
+ // isAddPage: boolean;
 
-  constructor(private authorizationService: AuthorizationService, private courseService: CourseService) {}
+  //constructor(private authorizationService: AuthorizationService, private courseService: CourseService) {}
+
+  constructor() {}
 
   ngOnInit() {
-    this.isAddPage = false;
+    // this.isAddPage = false;
 
-    this.authorizationService.newUser.subscribe(
+    /*this.authorizationService.newUser.subscribe(
       (user) => {
         this.isAuthenticated = user.isAuthenticated;
       },
@@ -26,11 +28,11 @@ export class AppComponent implements OnInit {
       },
        () => {
         console.log('Completed');
-      });
+      });*/
 
-    this.courseService.isAddPage.subscribe(isAddPage => {
+   /* this.courseService.isAddPage.subscribe(isAddPage => {
       this.isAddPage = isAddPage;
-    });
+    });*/
 
   }
 

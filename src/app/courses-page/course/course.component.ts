@@ -4,6 +4,7 @@ import {DeleteConfirmationComponent} from './delete-confirmation/delete-confirma
 import {ModalService} from '../../services/modal.service';
 import {CourseService} from '../../services/course.service';
 import {EditCourseComponent} from './edit-course/edit-course.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-course',
@@ -43,7 +44,7 @@ export class CourseComponent implements Course, OnInit, OnChanges {
   @Input()
   length: string;
 
-  constructor(private modalService: ModalService, private courseService: CourseService) {}
+  constructor(private modalService: ModalService, private courseService: CourseService, private router: Router) {}
 
   openDeleteConfirmationWindow() {
     this.modalService.open(DeleteConfirmationComponent);
@@ -51,8 +52,11 @@ export class CourseComponent implements Course, OnInit, OnChanges {
   }
 
   openEditPage() {
-    this.courseService.editCourseId.next(this.id);
-    this.courseService.isAddPage.next(true);
+    this.router.navigate(['/courses', this.id], {
+      queryParams: {
+        'name': this.name
+      }
+    });
   }
 
   ngOnChanges() {

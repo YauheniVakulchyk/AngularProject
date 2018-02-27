@@ -4,6 +4,7 @@ import {ModalService} from '../../services/modal.service';
 import {AddCourseComponent} from '../../add-course/add-course.component';
 import {CourseService} from '../../services/course.service';
 import {Subject} from 'rxjs/Subject';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-toolbox',
@@ -15,12 +16,13 @@ export class ToolboxComponent implements OnInit {
 
   searchText: string;
 
-  constructor(private modalService: ModalService, private courseService: CourseService) {}
+  constructor(private modalService: ModalService, private courseService: CourseService, private router: Router) {}
 
   open() {
    // this.modalService.open(AddCourseComponent);
-   this.courseService.editCourseId.next(null);
-   this.courseService.isAddPage.next(true);
+   // this.courseService.editCourseId.next(null);
+   // this.courseService.isAddPage.next(true);
+    this.router.navigate(['/courses/new']);
   }
 
   ngOnInit() {

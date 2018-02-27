@@ -1,7 +1,8 @@
 <div class="container">
   <app-header></app-header>
   <app-logo></app-logo>
-   <div *ngIf="!isAuthenticated">
+  <router-outlet></router-outlet>
+   <!--<div *ngIf="!isAuthenticated">
     <app-login-page></app-login-page>
   </div>
    <div *ngIf="isAuthenticated && !isAddPage">
@@ -9,7 +10,7 @@
   </div>
   <div *ngIf="isAuthenticated && isAddPage">
     <app-add-course></app-add-course>
-  </div>
+  </div> -->
   <app-footer></app-footer>
 </div>
 

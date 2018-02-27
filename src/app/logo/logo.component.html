@@ -3,19 +3,19 @@
     <img style="height: 70px; width: 140px;" src="https://res.cloudinary.com/ait-website/image/upload/v1486509249/AIT_LOGO_newblue_y9eugb.png">
   </div>
   <div>
-    <button>Courses</button>
+    <button routerLink="/courses">Courses</button>{{courseName}}
   </div>
   <div class="auth" *ngIf="isAuthenticated; then thenBlock else elseBlock">
   </div>
   <ng-template #thenBlock>
     <div class="auth">
       <p>Hello, {{username}}</p>
-       <a href="javascript:void(0);" (click)="logout()">Logout</a>
+       <a routerLink="/" (click)="logout()">Logout</a>
     </div>
   </ng-template>
   <ng-template #elseBlock>
     <div class="auth">
-      <a href="javascript:void(0);">Login</a>
+      <a routerLink="/">Login</a>
     </div>
   </ng-template>
 </div>
