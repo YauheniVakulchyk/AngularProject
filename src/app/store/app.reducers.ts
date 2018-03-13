@@ -7,7 +7,7 @@ export interface State {
 }
 
 const initialState: State = {
-  authInfo: new AuthInfo( null, null, false)
+  authInfo: new AuthInfo( '', false)
   /*id: null,
   name: null,
   isAuth: false*/
@@ -17,6 +17,7 @@ export function authReducer(state = initialState, action: AuthActions) {
   switch (action.type) {
     case LOGIN:
     case LOGOUT: {
+      console.log('payload = ' + action.payload);
       return {
         ...state,
         authInfo: action.payload

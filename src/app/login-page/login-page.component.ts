@@ -19,13 +19,13 @@ export class LoginPageComponent implements OnInit {
   // username: string;
   // password: string;
 
-  authInfo: Observable<{authInfo: AuthInfo}>;
+ // authInfo: Observable<{authInfo: AuthInfo}>;
 
   myForm: FormGroup;
 
   constructor(private authorizationService: AuthorizationService, private formBuilder: FormBuilder, private router: Router, private store: Store<AppState>) {
 
-    this.authInfo = this.store.select('auth');
+   // this.authInfo = this.store.select('auth');
 
     this.myForm = formBuilder.group({
 
@@ -40,8 +40,8 @@ export class LoginPageComponent implements OnInit {
     this.authorizationService.getData(this.myForm.controls['userName'].value, this.myForm.controls['password'].value).subscribe((users: User[]) => {
       if (users.length > 0) {
 
-        const authInfo = new AuthInfo(null, '', true);
-
+        const authInfo = new AuthInfo(this.myForm.controls['userName'].value, true);
+        console.log('authInfo = ' + authInfo);
         this.store.dispatch(new AppActions.Login(authInfo));
 
         users[0].isAuthenticated = true;

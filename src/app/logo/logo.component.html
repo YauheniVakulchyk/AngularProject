@@ -5,11 +5,11 @@
   <div>
     <button routerLink="/courses">Courses</button>{{courseName}}
   </div>
-  <div class="auth" *ngIf="isAuthenticated; then thenBlock else elseBlock">
+  <div class="auth" *ngIf="(authInfo | async).authInfo.isAuth; then thenBlock else elseBlock">
   </div>
   <ng-template #thenBlock>
     <div class="auth">
-      <p>Hello, {{username}}</p>
+      <p>Hello, {{(authInfo | async).authInfo.username}}</p>
        <a routerLink="/" (click)="logout()">Logout</a>
     </div>
   </ng-template>

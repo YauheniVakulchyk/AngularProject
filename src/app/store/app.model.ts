@@ -1,11 +1,9 @@
 export class AuthInfo {
-  id: number;
-  name: string;
+  username: string;
   isAuth: boolean;
 
-  constructor(id: number, name: string, isAuth: boolean) {
-    this.id = id;
-    this.name = name;
+  constructor(username: string, isAuth: boolean) {
+    this.username = username;
     this.isAuth = isAuth;
   }
 }
