@@ -26,6 +26,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {CustomGuard} from './services/CustomGuard';
+import {StoreModule} from '@ngrx/store';
+import { reducers } from './store/app.reducers';
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -63,6 +65,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
+    StoreModule.forRoot({ reducers }),
     NgbModule.forRoot(),
   ],
   providers: [AuthorizationService, CourseService, ModalService, FindPipe, CustomGuard],
