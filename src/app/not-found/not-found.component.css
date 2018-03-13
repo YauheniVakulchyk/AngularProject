@@ -1,0 +1,23 @@
+.not-found {
+  margin: 5px;
+  border: ridge;
+  background-color: whiteSmoke;
+  min-height: 515px;
+}
+
+.not-found-text{
+  width: 50%;
+  position: relative;
+  margin: 100px auto 100px;
+  background-color: whiteSmoke;
+  min-height: 50%;
+  text-align: center;
+}
+
+p{
+  padding: 6px 10px;
+  font-style: italic;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  color: #14afb2;
+  font-size: 30px;
+}
