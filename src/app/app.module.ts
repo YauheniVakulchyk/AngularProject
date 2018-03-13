@@ -65,7 +65,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
-    StoreModule.forRoot({ reducers }),
+    StoreModule.forRoot(reducers ),
     NgbModule.forRoot(),
   ],
   providers: [AuthorizationService, CourseService, ModalService, FindPipe, CustomGuard],

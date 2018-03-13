@@ -22,4 +22,19 @@ describe('AddCourseComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('form invalid when empty', () => {
+    expect(component.myForm.valid).toBeFalsy();
+  });
+
+  it('description invalid when empty', () => {
+    const description = component.myForm.controls['description'];
+    expect(description.valid).toBeFalsy();
+  });
+
+  it('description validation', () => {
+    const description = component.myForm.controls['description'];
+    description.setValue('test');
+    expect(description.valid).toBeTruthy();
+  });
 });
